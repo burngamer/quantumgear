@@ -1,0 +1,48 @@
+/* --- GLOBAL THEME & NAV (Base for all pages) --- */
+:root {
+    --bg-dark: #0B0C10;
+    --card-bg: #1F2833;
+    --accent-cyan: #66FCF1;
+    --text-silver: #C5C6C7;
+}
+
+body {
+    margin: 0; padding: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-silver);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 2rem; background-color: var(--bg-dark);
+    border-bottom: 2px solid var(--accent-cyan);
+}
+
+.logo { font-size: 1.5rem; font-weight: bold; color: var(--accent-cyan); letter-spacing: 2px; }
+
+.nav-menu { display: flex; list-style: none; gap: 25px; }
+
+.nav-link { color: var(--text-silver); text-decoration: none; transition: 0.3s; }
+
+.nav-link:hover { color: var(--accent-cyan); }
+
+.hamburger { display: none; cursor: pointer; }
+
+.bar { display: block; width: 25px; height: 3px; margin: 5px 0; background-color: var(--accent-cyan); transition: 0.3s; }
+
+@media (max-width: 768px) {
+    .hamburger { display: block; }
+    .nav-menu {
+        position: fixed; left: -100%; top: 60px;
+        flex-direction: column; background-color: var(--bg-dark);
+        width: 100%; text-align: center; transition: 0.4s;
+        border-bottom: 2px solid var(--accent-cyan); padding: 20px 0;
+    }
+    .nav-menu.active { left: 0; }
+}
+.orders-container { padding: 50px; max-width: 800px; margin: 0 auto; }
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th, td { border: 1px solid var(--card-bg); padding: 15px; text-align: left; }
+th { background-color: var(--card-bg); color: var(--accent-cyan); }
+.empty-msg { font-style: italic; color: #888; }
