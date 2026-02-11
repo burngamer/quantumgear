@@ -12,6 +12,39 @@ body {
     color: var(--text-silver);
     font-family: 'Segoe UI', sans-serif;
 }
+/* 1. Define the Light Mode colors */
+body.light-mode {
+    --bg-dark: #f4f4f4;
+    --card-bg: #ffffff;
+    
+    /* Using your logo's Cyber Blue for the text to make it readable */
+    --accent-cyan: #0071e3; 
+    --text-silver: #0071e3; /* Changed from #1d1d1f to match the blue theme */
+}
+
+/* 2. Styling for the toggle button */
+.theme-btn {
+    background: none;
+    border: 1px solid var(--accent-cyan);
+    color: var(--accent-cyan);
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 15px;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.theme-btn:hover {
+    background: var(--accent-cyan);
+    color: var(--bg-dark);
+}
+
+/* Ensure the nav-controls div aligns things well */
+.nav-controls {
+    display: flex;
+    align-items: center;
+}
 .logo-link {
     text-decoration: none;
     display: inline-block;

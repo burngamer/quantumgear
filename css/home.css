@@ -2,21 +2,52 @@
 :root {
     --bg-dark: #0B0C10;
     --card-bg: #1F2833;
-    --accent-cyan: #66FCF1;
+    --accent-cyan: #66FCF1; /* Neon Cyan for Dark Mode */
     --text-silver: #C5C6C7;
+}
+
+body.light-mode {
+    --bg-dark: #f4f4f4;
+    --card-bg: #ffffff;
+    --accent-cyan: #0071e3; /* Deep Professional Blue for Light Mode */
+    --text-silver: #0071e3; /* Same Blue for readability */
+}
+
+body {
+    margin: 0; 
+    background-color: var(--bg-dark);
+    color: var(--text-silver); /* This now switches automatically! */
+    font-family: 'Segoe UI', sans-serif;
+    transition: background 0.3s, color 0.3s;
 }
 .logo-link {
     text-decoration: none;
     display: inline-block;
 }
 
-body {
-    margin: 0; padding: 0;
-    background-color: var(--bg-dark);
-    color: var(--text-silver);
-    font-family: 'Segoe UI', sans-serif;
+/* 2. Styling for the toggle button */
+.theme-btn {
+    background: none;
+    border: 1px solid var(--accent-cyan);
+    color: var(--accent-cyan);
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 15px;
+    font-size: 1.2rem;
+    transition: 0.3s;
 }
 
+.theme-btn:hover {
+    background: var(--accent-cyan);
+    color: var(--bg-dark);
+}
+
+/* Ensure the nav-controls div aligns things well */
+.nav-controls {
+    display: flex;
+    align-items: center;
+}
 .navbar {
     display: flex; justify-content: space-between; align-items: center;
     padding: 1rem 2rem; background-color: var(--bg-dark);
