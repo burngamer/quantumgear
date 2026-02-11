@@ -5,6 +5,10 @@
     --accent-cyan: #66FCF1;
     --text-silver: #C5C6C7;
 }
+.logo-link {
+    text-decoration: none;
+    display: inline-block;
+}
 
 body {
     margin: 0; padding: 0;

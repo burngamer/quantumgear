@@ -12,6 +12,10 @@ body {
     color: var(--text-silver);
     font-family: 'Segoe UI', sans-serif;
 }
+.logo-link {
+    text-decoration: none;
+    display: inline-block;
+}
 
 .navbar {
     display: flex; justify-content: space-between; align-items: center;
