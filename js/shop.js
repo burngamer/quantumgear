@@ -19,8 +19,33 @@ function displayProducts() {
 
 // Simple Cart Alert for now
 function addToCart(id) {
+    // 1. Find the product details from products.js
     const item = products.find(p => p.id === id);
-    alert(`${item.name} has been added to your orders!`);
+    
+    // 2. Calculate a "Due Date" (5 days from today)
+    const today = new Date();
+    const futureDate = new Date(today);
+    futureDate.setDate(today.getDate() + 5);
+    const formattedDate = futureDate.toISOString().split('T')[0]; // Formats as YYYY-MM-DD
+
+    // 3. Create the Order Object
+    const newOrder = {
+        name: item.name,
+        desc: item.description,
+        price: item.price, // Capturing the price from the store
+        date: formattedDate,
+        priority: "Medium",
+        completed: false
+    };
+
+    // 4. Retrieve existing orders or start fresh
+    let currentOrders = JSON.parse(localStorage.getItem('userOrders')) || [];
+    
+    // 5. Add the new item and save
+    currentOrders.push(newOrder);
+    localStorage.setItem('userOrders', JSON.stringify(currentOrders));
+
+    alert(`${item.name} has been deployed to your Orders terminal!`);
 }
 
 // Initial Call

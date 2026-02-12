@@ -30,10 +30,63 @@
         </ul>
     </nav>
 
-    <main style="padding: 50px; text-align: center;">
-        <h1>Order History</h1>
-        <p>Track your quantum shipments.</p>
-    </main>
+    <main class="orders-container">
+		<h1>Dispatch Management Terminal</h1>
+
+		<section class="summary-grid">
+			<div class="summary-card">
+				<h3>Total Orders</h3>
+				<p id="total-count">0</p>
+			</div>
+			<div class="summary-card pending">
+				<h3>In Transit</h3>
+				<p id="pending-count">0</p>
+			</div>
+			<div class="summary-card completed">
+				<h3>Delivered</h3>
+				<p id="completed-count">0</p>
+			</div>
+		</section>
+
+		<section class="order-form-container">
+			<form id="order-form">
+				<input type="text" id="prod-name" placeholder="Product Name" required>
+				<input type="text" id="prod-desc" placeholder="Description" required>
+				<input type="date" id="due-date" required>
+				<select id="priority">
+					<option value="Low">Low Priority</option>
+					<option value="Medium">Medium Priority</option>
+					<option value="High">High Priority</option>
+				</select>
+				<button type="submit" id="submit-btn">Deploy Order</button>
+			</form>
+		</section>
+
+		<div class="filter-controls">
+			<button onclick="filterOrders('All')">All</button>
+			<button onclick="filterOrders('High')">High Priority</button>
+			<button onclick="filterOrders('Medium')">Medium</button>
+			<button onclick="filterOrders('Low')">Low</button>
+		</div>
+
+		<div class="table-wrapper">
+			<table id="orders-table">
+				<thead>
+					<tr>
+						<th>Product</th>
+						<th>Details</th>
+						<th>Price</th>
+						<th>Due Date</th>
+						<th>Priority</th>
+						<th>Status</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody id="orders-body">
+                </tbody>
+			</table>
+		</div>
+	</main>
 
     <script src="../js/orders.js"></script>
 </body>
