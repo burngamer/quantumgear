@@ -1,3 +1,39 @@
+const track = document.getElementById('carousel-track');
+
+// 1. Inject Products into Carousel
+function initCarousel() {
+    track.innerHTML = products.map(product => {
+        // Fix the path: change "../images/" to "./images/" for the Home page
+        const fixedPath = product.image.replace('../images/', './images/');
+        
+        return `
+            <div class="carousel-slide">
+                <img src="${fixedPath}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>${product.description}</p>
+            </div>
+        `;
+    }).join('');
+}
+
+initCarousel();
+
+// 2. Carousel Movement Logic
+let index = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+
+function moveSlide(step) {
+    index = (index + step + slides.length) % slides.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
+}
+
+document.getElementById('homeNextBtn').addEventListener('click', () => moveSlide(1));
+document.getElementById('homePrevBtn').addEventListener('click', () => moveSlide(-1));
+
+// Auto-slide every 4 seconds
+setInterval(() => moveSlide(1), 4000);
+
+/* --- Keep your existing Theme & Hamburger logic below --- */
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 

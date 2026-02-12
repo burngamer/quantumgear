@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quantum Gear | Home</title>
     <link rel="stylesheet" href="./css/home.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
@@ -40,26 +41,45 @@
             <a href="./html/shop.html" class="cta-button">Explore Products</a>
         </div>
     </header>
-
-    <section class="features-summary">
-        <div class="feature">
-            <h3>Fast Shipping</h3>
-            <p>Across the galaxy in 2 days.</p>
-        </div>
-        <div class="feature">
-            <h3>Secure Tech</h3>
-            <p>Quantum-encrypted transactions.</p>
-        </div>
-        <div class="feature">
-            <h3>Expert Support</h3>
-            <p>24/7 technical assistance.</p>
+	<section class="home-carousel-section">
+        <h2>Featured Hardware</h2>
+        <div class="carousel-container">
+            <div class="carousel-track" id="carousel-track">
+                </div>
+            <button class="carousel-btn prev" id="homePrevBtn">&#10094;</button>
+            <button class="carousel-btn next" id="homeNextBtn">&#10095;</button>
         </div>
     </section>
+
+    
+	<section class="features-summary">
+		<div class="feature-card">
+			<div class="icon-box"><i class="fas fa-shuttle-space"></i></div>
+			<h3>Fast Shipping</h3>
+			<p>Across the galaxy in 2 light-days with drone-sync delivery.</p>
+			<div class="glow-line"></div>
+		</div>
+
+		<div class="feature-card">
+			<div class="icon-box"><i class="fas fa-lock"></i></div>
+			<h3>Secure Tech</h3>
+			<p>Quantum-encrypted transactions guarded by neural firewalls.</p>
+			<div class="glow-line"></div>
+		</div>
+
+		<div class="feature-card">
+			<div class="icon-box"><i class="fas fa-headset"></i></div>
+			<h3>Expert Support</h3>
+			<p>24/7 technical assistance from our elite engineering corps.</p>
+			<div class="glow-line"></div>
+		</div>
+	</section>
 
     <footer>
         <p>&copy; 2026 Quantum Gear. Built with passion and code.</p>
     </footer>
-
+	<script src="./js/products.js"></script>
     <script src="./js/home.js"></script>
+	
 </body>
 </html>

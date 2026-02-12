@@ -86,3 +86,119 @@ body {
     display: inline-block; padding: 12px 30px; background: var(--accent-cyan);
     color: var(--bg-dark); text-decoration: none; font-weight: bold; border-radius: 5px;
 }
+/* Carousel Styling */
+.home-carousel-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 2px solid var(--accent-cyan);
+    border-radius: 15px;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--card-bg);
+}
+
+.carousel-slide img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--accent-cyan);
+    border: none;
+    font-size: 2rem;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.next { right: 0; }
+.prev { left: 0; }
+.features-summary {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 80px 20px;
+    flex-wrap: wrap;
+    background: radial-gradient(circle at center, #1a1a1a 0%, var(--bg-dark) 100%);
+}
+
+.feature-card {
+    background: rgba(31, 40, 51, 0.4); /* Glassmorphism effect */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(102, 252, 241, 0.2);
+    padding: 40px 25px;
+    width: 280px;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-15px);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 10px 30px rgba(102, 252, 241, 0.2);
+}
+
+.icon-box {
+    font-size: 3rem;
+    color: var(--accent-cyan);
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px var(--accent-cyan));
+}
+
+.feature-card h3 {
+    color: var(--accent-cyan);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.feature-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-silver);
+}
+
+/* The Secret "Cool" Detail: Bottom Glow Line */
+.glow-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--accent-cyan);
+    box-shadow: 0 0 15px var(--accent-cyan);
+    transition: width 0.4s ease;
+}
+
+.feature-card:hover .glow-line {
+    width: 100%;
+}
