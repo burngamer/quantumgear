@@ -29,3 +29,18 @@ hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
 });
+// 1. CAROUSEL LOGIC
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-item');
+
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    currentSlide = (index + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+}
+
+document.getElementById('nextBtn').addEventListener('click', () => showSlide(currentSlide + 1));
+document.getElementById('prevBtn').addEventListener('click', () => showSlide(currentSlide - 1));
+
+// Auto-slide every 5 seconds
+setInterval(() => showSlide(currentSlide + 1), 5000);

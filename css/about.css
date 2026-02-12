@@ -82,3 +82,118 @@ body.light-mode {
 .about-section h1 { color: var(--accent-cyan); border-bottom: 2px solid var(--accent-cyan); display: inline-block; }
 .about-grid { display: flex; gap: 40px; align-items: center; margin-top: 30px; }
 @media (max-width: 600px) { .about-grid { flex-direction: column; } }
+/* --- ABOUT PAGE SPECIFIC --- */
+.about-container {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mission-section h1 {
+    color: var(--accent-cyan);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.mission-section p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    line-height: 1.8;
+}
+
+/* Team Grid Cards */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.team-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid var(--accent-cyan);
+    transition: 0.3s;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px var(--accent-cyan);
+}
+
+.avatar {
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+.role {
+    color: var(--accent-cyan);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.bio {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Carousel Styles */
+.carousel-section {
+    margin-bottom: 80px;
+}
+
+.carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 50px;
+    border: 1px solid var(--accent-cyan);
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    display: none; /* Controlled by JS */
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+.carousel-item p {
+    font-style: italic;
+    font-size: 1.3rem;
+}
+
+.carousel-item span {
+    display: block;
+    margin-top: 20px;
+    color: var(--accent-cyan);
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--accent-cyan);
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
