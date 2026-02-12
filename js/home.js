@@ -85,3 +85,40 @@ function displayActivity() {
 
 // Call this function when the page loads
 displayActivity();
+async function fetchWeatherData() {
+    const weatherContainer = document.getElementById('weather-container');
+    
+    try {
+        // Updated URL for Agia Paraskevi, Athens
+        const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=38.0046&longitude=23.8152&current_weather=true');
+        const data = await response.json();
+        
+        const temp = data.current_weather.temperature;
+        const wind = data.current_weather.windspeed;
+        const code = data.current_weather.weathercode;
+
+        // Map weather codes to tech-themed status
+        let status = "Clear Skies";
+        if (code > 0 && code <= 3) status = "Partly Cloudy";
+        if (code >= 45 && code <= 48) status = "Fog Detected";
+        if (code >= 51) status = "Precipitation Detected";
+
+        weatherContainer.innerHTML = `
+            <div class="weather-info">
+                <div class="temp-display">${temp}°C</div>
+                <div class="weather-details">
+                    <p><strong>Status:</strong> ${status}</p>
+                    <p><strong>Wind Speed:</strong> ${wind} km/h</p>
+                    <p><strong>Sector:</strong> Agia Paraskevi, Athens</p>
+                </div>
+            </div>
+            <p class="api-note">Live telemetry fetched via Open-Meteo API</p>
+        `;
+    } catch (error) {
+        console.error("Weather error:", error);
+        weatherContainer.innerHTML = `<p>Error: Satellite Link Offline.</p>`;
+    }
+}
+
+// Initialize the fetch
+fetchWeatherData();
