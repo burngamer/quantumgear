@@ -65,3 +65,23 @@ hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
 });
+function displayActivity() {
+    const list = document.getElementById('activity-list');
+    if (!list) return; // Prevents errors if not on home page
+    
+    const logs = JSON.parse(localStorage.getItem('activityLog')) || [];
+    
+    if (logs.length === 0) {
+        list.innerHTML = `<li class="activity-item">System idle... No recent activity.</li>`;
+        return;
+    }
+    
+    list.innerHTML = logs.map(log => `
+        <li class="activity-item">
+            <span class="time">[${log.time}]</span> ${log.text}
+        </li>
+    `).join('');
+}
+
+// Call this function when the page loads
+displayActivity();

@@ -85,16 +85,28 @@ function renderOrders(filter = 'All') {
     });
     updateSummary();
 }
-
+function logActivity(message) {
+    let logs = JSON.parse(localStorage.getItem('activityLog')) || [];
+    const newLog = {
+        text: message,
+        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    };
+    logs.unshift(newLog);
+    if (logs.length > 5) logs.pop();
+    localStorage.setItem('activityLog', JSON.stringify(logs));
+}
 // 3. ACTIONS
 function deleteOrder(index) {
     orders.splice(index, 1);
     saveAndRender();
+	logActivity(`Order: ${orders[index].name} removed from system`);
 }
 
 function toggleStatus(index) {
     orders[index].completed = !orders[index].completed;
     saveAndRender();
+	const status = orders[index].completed ? "Delivered" : "In Transit";
+	logActivity(`Order: ${orders[index].name} status updated to ${status}`);
 }
 
 function prepareEdit(index) {

@@ -16,7 +16,16 @@ function displayProducts() {
         </div>
     `).join('');
 }
-
+function logActivity(message) {
+    let logs = JSON.parse(localStorage.getItem('activityLog')) || [];
+    const newLog = {
+        text: message,
+        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    };
+    logs.unshift(newLog);
+    if (logs.length > 5) logs.pop();
+    localStorage.setItem('activityLog', JSON.stringify(logs));
+}
 // Simple Cart Alert for now
 function addToCart(id) {
     // 1. Find the product details from products.js
@@ -44,6 +53,7 @@ function addToCart(id) {
     // 5. Add the new item and save
     currentOrders.push(newOrder);
     localStorage.setItem('userOrders', JSON.stringify(currentOrders));
+	logActivity(`Product: ${item.name} added to dispatch`);
 
     alert(`${item.name} has been deployed to your Orders terminal!`);
 }
