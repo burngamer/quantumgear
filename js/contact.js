@@ -1,5 +1,6 @@
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
+const contactForm = document.getElementById('contact-form');
 
 // 1. Check for saved theme in localStorage
 const savedTheme = localStorage.getItem('theme');
@@ -28,4 +29,23 @@ const navMenu = document.getElementById('nav-menu');
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
+});
+// 1. FORM SUBMISSION LOGIC
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // Stop page from refreshing
+
+    // Capture values
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+
+    // Validation Check (HTML5 handles most, but we can double check)
+    if(name && email && subject && message) {
+        // Confirmation Pop-up
+        alert(`Transmission Received, ${name}!\n\nDetails Captured:\nEmail: ${email}\nSubject: ${subject}\n\nWe will contact you shortly.`);
+        
+        // Reset the form
+        contactForm.reset();
+    }
 });
